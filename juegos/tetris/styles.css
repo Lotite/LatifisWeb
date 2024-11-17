@@ -1,0 +1,353 @@
+html{
+    background-size: cover;
+    background: linear-gradient(30deg, rgb(17, 17, 56) ,  rgb(43, 43, 132),rgb(17, 17, 56)) no-repeat;
+    scrollbar-width: none;
+    min-height: 100%;
+}
+
+
+.led{
+    border: 1px solid rgb(0, 213, 251);
+    box-shadow: inset 0 0 10px rgb(0, 105, 252)  , rgb(0, 105, 252) 0 0 10px ;
+}
+
+#contenedor {
+    max-width: 700px;
+    max-height: max-content;
+    margin-top: 50px;
+    margin-inline: auto;
+    border-radius: 10px;
+    overflow: hidden;
+    background-color: rgba(27, 27, 27, 0.395);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+
+
+
+
+
+
+main {
+    background-color: rgba(176, 176, 176, 0.196);
+    width: 300px;
+    height: 600px;
+    color: blue;
+    margin-top: 20px;
+    z-index: 10;
+    display: flex;
+    border-radius: 5px;
+    position: relative;
+    overflow: hidden;
+}
+
+.figura{
+    
+    left: 40%;
+    top: 0;
+    position: absolute;
+    
+    
+}
+.bloque{
+    width:30px;
+    height:30px;
+    position: absolute;
+    margin: 0;
+    background-color: red;
+    box-shadow: inset 0 0 7px 0 rgb(0, 0, 0);
+   
+}
+
+#casillas {
+    width: 100%;
+    height: 100%;
+    border-radius: 5px;
+    background: 
+    repeating-linear-gradient(
+        0deg, 
+        rgb(42, 39, 75) ,
+        rgb(42, 39, 75) 1px, 
+        transparent 2px, 
+        transparent 30px
+    ),
+    repeating-linear-gradient(
+        90deg, 
+        rgba(42, 39, 75, 0.938), 
+        rgb(42, 39, 75) 1px,
+        transparent 2px, 
+        transparent 30px
+    );
+    z-index: 1;
+}
+
+section{    
+    flex-grow: 1;
+    max-width: 300px;
+    height: 640px;
+    display: flex;
+    flex-direction: column;
+}
+
+
+
+#info{
+    display: flex;
+    margin-top: 10px;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding-block: 10px;
+    height: 465px;
+}
+
+
+#barra{
+    width: 80%;
+    height: 20%;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    overflow: hidden;
+
+}
+
+#linea{
+    height: 100%;
+    width: 0%;
+    background-color: rgb(173, 72, 255);
+    transition: all 0.5s ease-in-out;
+}
+
+
+
+
+.caja , .caja2{
+    width: 45%;
+    height: 100px;
+    background-color: rgba(103, 102, 102, 0.367);
+    border: 2px solid rgb(0, 213, 251);
+    box-shadow: inset 0 0 10px rgb(0, 105, 252)  , rgb(0, 105, 252) 0 0 10px ;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 200%;
+    justify-content: space-around;
+    color: white;
+    & h3{
+        font-size: 80%;
+        margin: 0;
+        color: rgb(119,129,228);
+    }
+}
+.caja2{
+    width: 100%;
+}
+
+.almacen{
+    width: 100px;
+    height: 100px;
+    background-color: rgb(94, 89, 117);
+    border: 1px solid rgba(0, 0, 0, 0.495);
+    border-radius: 10px;
+    margin-bottom: 5px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    & .figura{
+        justify-self: center !important;
+        position: sticky !important;
+   
+    }
+
+    & .bloques{
+        border-radius: none !important;
+        box-shadow: none !important;
+    }
+
+}
+
+
+
+
+
+
+
+#botones{
+    flex-grow: 1;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.key{
+    width: calc(33% - 16px);
+    height: 50px;
+    margin: 5px;
+    & img{
+        width: 70%;
+        height: 70%;
+        margin: 0;
+    }
+    background-color:rgba(103, 102, 102, 0.367);
+}
+
+
+
+footer{
+    width: 100%;
+    height: 100px;
+    margin-inline: auto ;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.btn{
+    border-radius: 5px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn-menu{
+    height: 50px;
+    width: 160px;
+    color: white;
+    background-color: rgb(57, 57, 219);
+    border: none;
+}
+
+/* Tablet*/
+@media (max-height: 580px) {
+
+    #contenedor{
+        margin-top: 0;
+        width: 600px;
+        padding-inline: 10px;
+    }
+    main {
+        width: 250px;
+        height: 500px;
+        border-radius: 5px;
+    }
+
+    #casillas {
+        background: 
+        repeating-linear-gradient(
+            0deg, 
+            rgb(42, 39, 75), 
+            rgb(42, 39, 75) 1px,
+            transparent 2px, 
+            transparent 25px
+        ),
+        repeating-linear-gradient(
+            90deg, 
+            rgb(42, 39, 75), 
+            rgb(42, 39, 75) 1px,
+            transparent 2px, 
+            transparent 25px
+        );
+    }
+
+    section{
+        height: 525px;
+    }
+
+    footer{
+        height: max-content;
+        margin-block: 20px ;
+     }
+ 
+     .btn-menu{
+         height: 40px;
+         width: 30%;
+ 
+     }
+    
+
+}
+/* Telefonos*/
+@media (max-width: 500px) {
+    html{
+        overflow: hidden;
+    }
+    #contenedor{
+        margin-top: 0;
+        width: 300px;
+    }
+    main {
+        margin-bottom: 7px;
+        width: 250px;
+        height: 500px;
+        margin-inline: auto;
+        border-radius: 5px;
+    }
+  
+    
+    
+    #casillas {
+        background: 
+        repeating-linear-gradient(
+            0deg, 
+            rgb(42, 39, 75), 
+            rgb(42, 39, 75) 1px, 
+            transparent 2px, 
+            transparent 25px
+        ),
+        repeating-linear-gradient(
+            90deg, 
+            rgb(42, 39, 75), 
+            rgb(42, 39, 75) 1px, 
+            transparent 2px, 
+            transparent 25px
+        );
+    }
+
+    section{
+        width: 280px;
+        flex-grow: 0;
+        height: max-content;
+    }
+    #info{
+        height: max-content;
+        justify-content: center;
+        margin: 0;
+        padding: 0;
+    }
+    .caja , .caja2{
+        display: none;
+    }
+    .contenedor{
+        display: flex;
+        margin-inline: 10px;
+        width:115px;
+    }
+    .key{
+        height: 40px;
+
+    }
+
+
+    footer{
+        height: max-content;
+        margin-block: 5px ;
+     }
+ 
+     .btn-menu{
+         height: 40px;
+         width: 30%;
+ 
+     }
+
+}
+
+@media(max-height: 800px) {
+    #info {
+        display: none;
+    }
+}

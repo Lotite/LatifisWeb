@@ -3,8 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0,<meta name=" viewport"
-        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no"">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LatifisWeb</title>
     <link href=" https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
@@ -14,22 +13,24 @@
 <body>
     <header>
         <div class="container">
-            <h1 id="title" class="text-shadow"><span class="text-cPink">Mi</span> Portafolios</h1>
+            <h1 id="title" class="text-shadow"><span class="text-cPink">Mi</span> Portafolio</h1>
             <nav>
                 <div class="btn-nav">☰</div>
                 <ul>
                     <li><a href="#">Inicio</a></li>
-                    <li><a href="#">Sobre mi</a></li>
+                    <li><a href="#">Sobre mí</a></li>
                     <li><a href="#">Proyectos</a></li>
                     <li><a href="#">Contacto</a></li>
                 </ul>
             </nav>
+        </div>
     </header>
     <main>
         <section id="start" class="text-cPurple">
             <div class="container-max">
                 <h1 class="text-shadow">Bienvenido a mi mundo creativo</h1>
-                <p>Explora mis proyectos y descubre mi pasión por la creacion web y juegos.</p>
+                <p>Explora mis proyectos y descubre mi pasión por la creación web y juegos.</p>
+            </div>
         </section>
         <section id="about" class="container">
             <h2 class="text-cPurple">Sobre mi</h2>
@@ -43,61 +44,78 @@
             </p>
             <div class="skills">
                 <h3>Mis habilidades</h3>
-                <img src="img/icons/html.png" title="HTML" alt="html" class="skill">
-                <img src="img/icons/css.png" title="CSS" alt="css" class="skill">
-                <img src="img/icons/js.png" title="JavaScript" alt="javaScript" class="skill">
-                <img src="img/icons/bootstrap.png" title="Bootstrap" alt="Bootstrap" class="skill">
-                <img src="img/icons/php.png" title="PHP" alt="PHP" class="skill">
-                <img src="img/icons/sql.png" title="SQL" alt="SQL" class="skill">
-                <div">
+                <img src="img/icons/html.png" title="HTML" alt="html" class="icono">
+                <img src="img/icons/css.png" title="CSS" alt="css" class="icono">
+                <img src="img/icons/js.png" title="JavaScript" alt="javaScript" class="icono">
+                <img src="img/icons/bootstrap.png" title="Bootstrap" alt="Bootstrap" class="icono">
+                <img src="img/icons/php.png" title="PHP" alt="PHP" class="icono">
+                <img src="img/icons/sql.png" title="SQL" alt="SQL" class="icono">
+            </div>
         </section>
 
         <section id="projects" class="container">
             <h2 class="text-blue-1">Mis Proyectos</h2>
             <div class="row">
-                <div class="project col-5">
-                    <img class="img-proyect" src="#" alt="nombreProyecto">
-                    <h3>Nombre</h3>
-                    <p class="description-main">Descripción del proyecto</p>
-                    <p class="description-plus">Detalles</p>
-                    <div class="skills">
-                        <span class="skill ico-HTML">HTML</span>
-                        <span class="skill ico-HTML">HTML</span>
+                <div class="project col-6">
+                    <div class="container mx-auto">
+                        <img class="img-proyect" src="img/proyectos/tetris.png" alt="nombreProyecto">
+                        <h3><a href="./juegos/tetris">Tetris</a></h3>
+                        <p class="description">
+                            En este proyecto, he desarrollado una versión responsive del clásico juego Tetris. Además de
+                            adaptarse a diferentes tamaños de pantalla, he incorporado nuevas funcionalidades como la
+                            previsualización de las próximas piezas y la posibilidad de guardar una pieza para usarla
+                            más tarde, enriqueciendo así la experiencia de juego.
+                        </p>
+                        <p class="resumen">Recreacion del juego Tetris responsive</p>
+                        <div class="skills">
+                            <img src="img/icons/html.png" title="HTML" alt="html" class="icono">
+                            <img src="img/icons/js.png" title="JavaScript" alt="javaScript" class="icono">
+                            <img src="img/icons/css.png" title="CSS" alt="css" class="icono">
+                        </div>
                     </div>
                 </div>
-                <div class="project col-5">
-                    <img class="img-proyect" src="#" alt="nombreProyecto">
-                    <h3>Nombre</h3>
-                    <p class="description-main">Descripción del proyecto</p>
-                    <p class="description-plus">Detalles</p>
-                    <div class="skills">
-                        <span class="skill ico-HTML">HTML</span>
-                        <span class="skill ico-HTML">HTML</span>
+                <div class="project col-6">
+                    <div class="container mx-auto">
+                        <img class="img-proyect" src="img/proyectos/numPuz.png" alt="nombreProyecto">
+                        <h3><a href="./juegos/numpuz/">NumPuz</a></h3>
+                        <p class="description">En este proyecto, implementé el clásico juego NumPuz, tratando cada pieza
+                            del rompecabezas como un objeto independiente. Este enfoque me permitió profundizar en los
+                            principios de encapsulación y, al mismo tiempo, dificultar la manipulación no deseada del
+                            juego a través de las herramientas de desarrollo del navegador</p>
+                        <p class="resumen">Juego numpuz encapsulado</p>
+                        <div class="skills">
+                            <img src="img/icons/html.png" title="HTML" alt="html" class="icono">
+                            <img src="img/icons/js.png" title="JavaScript" alt="javaScript" class="icono">
+                            <img src="img/icons/css.png" title="CSS" alt="css" class="icono">
+                        </div>
                     </div>
                 </div>
-                <div class="project col-5">
-                    <img class="img-proyect" src="#" alt="nombreProyecto">
-                    <h3>Nombre</h3>
-                    <p class="description-main">Descripción del proyecto</p>
-                    <p class="description-plus">Detalles</p>
-                    <div class="skills">
-                        <span class="skill ico-HTML">HTML</span>
-                        <span class="skill ico-HTML">HTML</span>
+                <div class="project col-6">
+                    <div class="container mx-auto">
+                        <img class="img-proyect" src="img/proyectos/cartas.png" alt="nombreProyecto">
+                        <h3><a href="./juegos/e06cartas/">Juego de memoria</a></h3>
+                        <p class="description">Este juego de memoria trata cada carta como un objeto individual, lo que
+                            facilita la creación de animaciones personalizadas y evita que el usuario pueda ver el
+                            contenido de las cartas utilizando las herramientas de desarrollador.</p>
+                        <p class="resumen">Juego de memoria encapsulado y con animación de rotacion</p>
+                        <div class="skills">
+                            <img src="img/icons/html.png" title="HTML" alt="html" class="icono">
+                            <img src="img/icons/js.png" title="JavaScript" alt="javaScript" class="icono">
+                            <img src="img/icons/css.png" title="CSS" alt="css" class="icono">
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
     </main>
     <footer>
-        <div id="contact" class="container">
-            <h2>Contáctame</h2>
-            <a href="#">Github</a>
-            <a href="#">Linkedin</a>
-            <a href="#">Correo</a>
+        <div id="contact" class="container mx-auto">
+            <h2 class="text-center text-cPink">Contáctame</h2>
+            <a href="https://github.com/Lotite"><img src="img/icons/github.png"  title="HTML" alt="html" class="icono"></a>
+            <a href="https://www.linkedin.com/in/lotfi-bayi/"><img src="img/icons/linkedin.png"  title="HTML" alt="html" class="icono"></a>
+            <a href="mailto:bayilotfi@gmail.com"><img src="img/icons/email.png"  title="HTML" alt="html" class="icono"></a>
         </div>
     </footer>
-    </div>
 </body>
-<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 
 </html>
