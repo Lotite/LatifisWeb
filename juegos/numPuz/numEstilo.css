@@ -14,25 +14,31 @@ h1 {
 }
 
 #menu,
-#victoria {
+#victoria .contenedor {
     margin-top: calc(50vh - 200px);
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     background-color: white;
     border-radius: 9px;
     padding: 30px 40px;
-    width: 300px;
-    height: 250px;
+    border: none;
+    overflow: none;
+    width: 60vw;
+    max-width: 300px;
+    height: max-content;
     margin-inline: auto;
-
 }
+
+
 
 #victoria {
+    width: 100%;
     display: none;
     position: absolute;
-    bottom: calc(50vh - 118px);
-    left: calc(50vw - 200px);
+    top: calc(50vh - 50%);
     z-index: 10;
 }
+
+
 
 p {
     color: #d3a12e;
@@ -114,7 +120,7 @@ input {
 }
 
 #juego {
-    width: 70vh;
+    width: 80%;
     display: none;
     margin-inline: auto;
 
@@ -140,7 +146,9 @@ input {
 
 .contenedor {
     width: 70vh;
+    max-width: 70vw;
     height: 70vh;
+    max-height: 70vw;
     position: relative;
     border: solid 5px rgb(180, 102, 0);
     border-radius: 5px;
