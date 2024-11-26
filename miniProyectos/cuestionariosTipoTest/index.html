@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="estilo.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+        <script type="module" src="main.js"></script>
+  
+    <title>Preguntas</title>
+</head>
+
+<body>
+    <main>
+        <div id="menu" class=" mx-auto p-3 bg-info  bg-opacity-10 border border-info border rounded mt-5">
+            <h1>Seleciona Tu Examen</h1>
+            <div id="examenes"></div>
+            <div class="button-group mx-auto">
+                <button id="addPregunta" class="mx-2 btn-half-width  btn btn-menu btn-dark">Importar</button>
+                <button id="makePregunta" class="mx-2 btn-half-width btn btn-menu btn-dark">Crear</button>
+            </div>
+        </div>
+        <div id="preguntas" class="container p-3 bg-info bg-opacity-10 border border-info border rounded mt-5">
+            <h3>Pregunta</h3>
+            <div id="opciones">
+                <div class="opcion"><label><input type="radio" name="pregunta1"><span>Respuesta1</span></label></div>
+                <div class="opcion">
+                    <label><input type="radio" name="pregunta1"> <span>Respuesta1</span></label>
+                </div>
+                <div class="opcion">
+                    <label><input type="radio" name="pregunta1"> <span>Respuesta1</span></label>
+                </div>
+                <div class="opcion">
+                    <label><input type="radio" name="pregunta1"> <span>Respuesta1</span></label>
+                </div>
+            </div>
+            <div class="mx-auto button-group">
+                <button id="cancelarHacerExamen" class="btn btn-half-width btn-danger gb-gradient">Cancelar</button>
+                <button id="anterior" class="btn-half-width mx-2 btn btn-menu btn-dark">Anterior</button>
+                <button id="siguiente" class="btn-half-width mx-2 btn btn-menu btn-dark">Siguiente</button>
+            </div>
+        </div>
+        <div id="context-menu">
+            <div id="abrir" class="context-menu-item">Abrir</div>
+            <div id="editar" class="context-menu-item">Editar</div>
+            <div id="imprimir" class="context-menu-item">Imprimir</div>
+            <div id="codificar" class="context-menu-item">Exportar</div>
+            <div id="eliminar" class="context-menu-item">Eliminar</div>
+        </div>
+        <div id="crearExamen" class="mx-auto mt-5 p-3 bg-info bg-opacity-10 border border-info border rounded">
+            <div id="contenedor">
+
+            </div>
+            <div class="button-group mx-auto">
+                <button id="cancelarCrearExamen" class="btn btn-danger gb-gradient">Cancelar</button>
+                <button id="addCrearPregunta" class="btn btn-success bg-gradient">Añadir Pregunta</button>
+                <button id="bCrearExamen" class="btn btn-dark">Crear el examen</button>
+            </div>
+        </div>
+        <div id="imprimirPDF" class="container"></div>
+        
+    </main>
+</body>
+
+</html>
