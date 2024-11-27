@@ -161,10 +161,10 @@ function cambiarPregunta(num) {
     if (posicion + num >= 0 && num + posicion < maxPos) {
         posicion += num
         imprimirPregunta()
-    }else  if(num + posicion >=maxPos){
+    } else if (num + posicion >= maxPos) {
         darNota()
     }
-    document.querySelector("#siguiente").textContent = (posicion == maxPos-1) ? "Ver nota" : "Siguiente"
+    document.querySelector("#siguiente").textContent = (posicion == maxPos - 1) ? "Ver nota" : "Siguiente"
 }
 
 
@@ -182,34 +182,34 @@ function imprimirOpciones(opciones) {
     opciones.forEach(opcion => {
         const div = document.createElement("div")
         div.classList.add("opcion");
-        div.innerHTML = `<label><input type="radio" name="pregunta1" ${cargarElecion(opcion) ? "checked" : "" }><span></span></label>`
+        div.innerHTML = `<label><input type="radio" name="pregunta1" ${cargarElecion(opcion) ? "checked" : ""}><span></span></label>`
         const span = div.querySelector("span")
         span.textContent = opcion
         const check = div.querySelector("input")
         check.addEventListener("click", () => {
             //respuestas[posicion] = {posicion:posicion,respuesta:opcion}
-            if(respuestas[posicion]){
-                check.checked = false;
-                respuestas.splice(posicion,1)
-            }else{
-                respuestas.push({posicion:posicion,respuesta:opcion})
+            const temDato = respuestas.find(dato => dato.posicion == posicion)
+            if (temDato) {
+                check.checked = temDato.respuesta != opcion;
+                respuestas.splice(respuestas.indexOf(temDato), 1)
             }
+            if( check.checked )respuestas.push({ posicion: posicion, respuesta: opcion })
         })
         padre.appendChild(div)
     });
 }
 
 
-function darNota(){
+function darNota() {
     let suma = 0;
-    respuestas.forEach(dato=>{
-        suma += (dato.respuesta==preguntas[dato.posicion].respuesta) ? 1 : -0.25
+    respuestas.forEach(dato => {
+        suma += (dato.respuesta == preguntas[dato.posicion].respuesta) ? 1 : -0.25
     })
     alert(`${suma} de ${maxPos}`)
 }
 
-function cargarElecion(opcion){
-    return respuestas.some(dato=>dato.posicion==posicion && dato.respuesta == opcion);
+function cargarElecion(opcion) {
+    return respuestas.some(dato => dato.posicion == posicion && dato.respuesta == opcion);
 }
 
 
@@ -303,7 +303,7 @@ function editarExamen(num) {
         let temNum = agregarElemento("pregunta", pregunta.enunciado)
         pregunta.opciones.forEach((opcion, oIndex) => {
             agregarElemento("opcion", opcion, temNum)
-            if (opcion === pregunta.respuesta){
+            if (opcion === pregunta.respuesta) {
                 document.querySelectorAll("#crearExamen #contenedor .crearPregunta")[pIndex].querySelectorAll(".crearOpciones input[type='radio']")[oIndex].checked = true
             }
         })
