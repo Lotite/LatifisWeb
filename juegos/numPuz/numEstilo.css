@@ -1,9 +1,10 @@
 html,
 body {
     user-select: none;
-    background: linear-gradient(to right, #fef3c7, #fde68a) no-repeat;
+    background: linear-gradient(to right, #fef3c7, #fde68a);
     height: 98vh;
     overflow: hidden;
+    margin: 0;
 }
 
 h1 {
