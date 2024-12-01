@@ -93,6 +93,9 @@ document.querySelector("#siguiente").addEventListener("click", () => { cambiarPr
 document.querySelector("#anterior").addEventListener("click", () => { cambiarPregunta(-1) })
 
 
+document.querySelector("#borrarPreguntasInfo").addEventListener("click", () => {
+    corregirPreguntas(true)}
+)
 //////Funciones
 
 function cargarExamen(examen) {
@@ -145,8 +148,11 @@ function imprimirPreguntas(index) {
         posicion = 0
         maxPos = preguntas.length
         ocultrarTodo()
-        document.querySelector("#preguntas").style.display = "block"
+        document.querySelector("#prueba").style.display = "flex"
+        document.querySelector("#nota").innerHTML = "";
+        document.querySelector("#siguiente").textContent = "Siguiente"
         preguntas.sort(() => Math.random() > 0.5 ? 1 : -1)
+        crearPruebaInfo()
         imprimirPregunta()
     } catch (error) {
         examenes.splice(index, 1)
@@ -157,15 +163,52 @@ function imprimirPreguntas(index) {
 
 
 
+//<div class="preguntaInfo"></div>
+function crearPruebaInfo(){
+    document.querySelector("#preguntasDatos").innerHTML = "";
+    for (let index = 0; index < maxPos; index++) {
+        const temElemento = document.createElement("div")
+        temElemento.classList.add("preguntaInfo")
+        temElemento.innerHTML = index + 1
+
+        temElemento.addEventListener("click",()=>{
+            posicion = index;
+            imprimirPregunta()
+        })
+        document.querySelector("#preguntasDatos").appendChild(temElemento)
+    }
+}
+
+
+
 function cambiarPregunta(num) {
     if (posicion + num >= 0 && num + posicion < maxPos) {
         posicion += num
         imprimirPregunta()
-    } else if (num + posicion >= maxPos) {
+    }else  if(num + posicion >=maxPos){
         darNota()
     }
-    document.querySelector("#siguiente").textContent = (posicion == maxPos - 1) ? "Ver nota" : "Siguiente"
+    document.querySelector("#siguiente").textContent = (posicion == maxPos-1) ? "Ver nota" : "Siguiente"
 }
+
+function corregirPregunta(num,borrar,noSeguir){
+    const pregunta = document.querySelectorAll(".preguntaInfo")[num];
+    pregunta.classList.remove("bg-danger","bg-success")
+    if(!borrar){
+        const respuesta = buscarRespuesta(num)?.respuesta
+        if(respuesta) pregunta.classList.add( respuesta ==preguntas[num].respuesta ? "bg-success" : "bg-danger" )
+        if(!noSeguir) pregunta.scrollIntoView({ behavior: 'smooth' });
+    }
+}
+
+    function corregirPreguntas(borrar){
+        for (let index = 0; index < maxPos; index++) {
+            corregirPregunta(index,borrar,true)
+        }
+    }
+
+
+
 
 
 function imprimirPregunta() {
@@ -182,34 +225,43 @@ function imprimirOpciones(opciones) {
     opciones.forEach(opcion => {
         const div = document.createElement("div")
         div.classList.add("opcion");
-        div.innerHTML = `<label><input type="radio" name="pregunta1" ${cargarElecion(opcion) ? "checked" : ""}><span></span></label>`
+        div.innerHTML = `<label><input type="radio" name="pregunta1" ${cargarElecion(opcion) ? "checked" : "" }><span></span></label>`
         const span = div.querySelector("span")
         span.textContent = opcion
         const check = div.querySelector("input")
         check.addEventListener("click", () => {
             //respuestas[posicion] = {posicion:posicion,respuesta:opcion}
-            const temDato = respuestas.find(dato => dato.posicion == posicion)
-            if (temDato) {
-                check.checked = temDato.respuesta != opcion;
-                respuestas.splice(respuestas.indexOf(temDato), 1)
+            const objRespuesta = buscarRespuesta(posicion);
+            const corregir = document.querySelector("#corregir").checked;
+            if(objRespuesta && objRespuesta.respuesta==opcion){
+                check.checked = false;
+                respuestas.splice(respuestas.indexOf(objRespuesta),1)
+                corregirPregunta(posicion,true)
+            }else{
+                if(objRespuesta) respuestas.splice(respuestas.indexOf(objRespuesta),1)
+                respuestas.push({posicion:posicion,respuesta:opcion})
+                corregirPregunta(posicion,!corregir)
             }
-            if( check.checked )respuestas.push({ posicion: posicion, respuesta: opcion })
         })
         padre.appendChild(div)
     });
 }
 
-
-function darNota() {
-    let suma = 0;
-    respuestas.forEach(dato => {
-        suma += (dato.respuesta == preguntas[dato.posicion].respuesta) ? 1 : -0.25
-    })
-    alert(`${suma} de ${maxPos}`)
+function buscarRespuesta(poss){
+    return respuestas.find(respuesta=>respuesta.posicion==poss)
 }
 
-function cargarElecion(opcion) {
-    return respuestas.some(dato => dato.posicion == posicion && dato.respuesta == opcion);
+function darNota(){
+    let suma = 0;
+    respuestas.forEach(dato=>{
+        suma += (dato.respuesta==preguntas[dato.posicion].respuesta) ? 1 : -0.25
+    })
+    corregirPreguntas()
+    document.querySelector("#nota").innerHTML = `${suma} de ${maxPos}`
+}
+
+function cargarElecion(opcion){
+    return respuestas.some(dato=>dato.posicion==posicion && dato.respuesta == opcion);
 }
 
 
@@ -303,7 +355,7 @@ function editarExamen(num) {
         let temNum = agregarElemento("pregunta", pregunta.enunciado)
         pregunta.opciones.forEach((opcion, oIndex) => {
             agregarElemento("opcion", opcion, temNum)
-            if (opcion === pregunta.respuesta) {
+            if (opcion === pregunta.respuesta){
                 document.querySelectorAll("#crearExamen #contenedor .crearPregunta")[pIndex].querySelectorAll(".crearOpciones input[type='radio']")[oIndex].checked = true
             }
         })
