@@ -20,24 +20,32 @@
                 <button id="makePregunta" class="mx-2 btn-half-width btn btn-menu btn-dark">Crear</button>
             </div>
         </div>
-        <div id="preguntas" class="container p-3 bg-info bg-opacity-10 border border-info border rounded mt-5">
-            <h3>Pregunta</h3>
-            <div id="opciones">
-                <div class="opcion"><label><input type="radio" name="pregunta1"><span>Respuesta1</span></label></div>
-                <div class="opcion">
-                    <label><input type="radio" name="pregunta1"> <span>Respuesta1</span></label>
+        <div id="prueba">
+            <div id="preguntas" class="container p-3 bg-info bg-opacity-10 border border-info border rounded mt-5">
+                <h3>Pregunta</h3>
+                <div id="opciones">
+                    <div class="opcion"><label><input type="radio" name="pregunta1"><span>Respuesta1</span></label></div>
+                    <div class="opcion">
+                        <label><input type="radio" name="pregunta1"> <span>Respuesta1</span></label>
+                    </div>
+                    <div class="opcion">
+                        <label><input type="radio" name="pregunta1"> <span>Respuesta1</span></label>
+                    </div>
+                    <div class="opcion">
+                        <label><input type="radio" name="pregunta1"> <span>Respuesta1</span></label>
+                    </div>
                 </div>
-                <div class="opcion">
-                    <label><input type="radio" name="pregunta1"> <span>Respuesta1</span></label>
-                </div>
-                <div class="opcion">
-                    <label><input type="radio" name="pregunta1"> <span>Respuesta1</span></label>
+                <div class="mx-auto button-group">
+                    <button id="cancelarHacerExamen" class="btn btn-half-width btn-danger gb-gradient">Cancelar</button>
+                    <button id="anterior" class="btn-half-width mx-2 btn btn-menu btn-dark">Anterior</button>
+                    <button id="siguiente" class="btn-half-width mx-2 btn btn-menu btn-dark">Siguiente</button>
                 </div>
             </div>
-            <div class="mx-auto button-group">
-                <button id="cancelarHacerExamen" class="btn btn-half-width btn-danger gb-gradient">Cancelar</button>
-                <button id="anterior" class="btn-half-width mx-2 btn btn-menu btn-dark">Anterior</button>
-                <button id="siguiente" class="btn-half-width mx-2 btn btn-menu btn-dark">Siguiente</button>
+            <div id="datosPrueba" class="container p-3 bg-info bg-opacity-10 border border-info border rounded mt-5">
+                <label> Corregir al momento <input id="corregir" type="checkbox"></label>
+                <span id="nota">Nota: 10/10</span>
+                <div id="preguntasDatos"></div>
+                <button id="borrarPreguntasInfo" class="btn btn-danger gb-gradient">Borrar</button>
             </div>
         </div>
         <div id="context-menu">
